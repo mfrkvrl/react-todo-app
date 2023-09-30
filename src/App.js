@@ -39,11 +39,13 @@ function App() {
   }
   
   return (
+    <div className="wrapper">
     <div className="container">
       <form onSubmit={onSubmitForm} className="new-item-form">
         <div className="form-row">
           <label htmlFor="item">New Item</label>
           <input
+          className="inputArea"
             type="text"
             id="item"
             value={newItem}
@@ -59,16 +61,17 @@ function App() {
             return (
               <li key={todo.id}>
                 <label>
-                  <input type="checkbox" checked={todo.completed} 
+                  <input type="checkbox" checked={todo.completed} className="box"
                   onChange={e=>toggleTodo(todo.id,e.target.checked)} />
                   {todo.title}
                 </label>
-                <button className="btn btn-danger" onClick={()=>deleteTodo(todo.id)}>Delete</button>
+                <button className="btn-danger" onClick={()=>deleteTodo(todo.id)}>Delete</button>
               </li>
             );
           })
         }
       </ul>
+    </div>
     </div>
   );
 }
